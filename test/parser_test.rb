@@ -454,6 +454,8 @@ describe Creole::Parser do
     tc "<table><tr><th>Header</th></tr></table>", "|=Header|"
 
     tc "<table><tr><td>c1</td><td><a href=\"Link\">Link text</a></td><td><img src=\"Image\" alt=\"Image text\"/></td></tr></table>", "|c1|[[Link|Link text]]|{{Image|Image text}}|"
+    # Excessive backtracing does not occur
+    tc "<table><tr><td><tt>{}</tt><tt>{}</tt><tt>{}</tt><tt>{}</tt><tt>{}</tt><tt>{}</tt><tt>{}</tt>{{{{</td></tr></table>", "|{{{{}}}}{{{{}}}}{{{{}}}}{{{{}}}}{{{{}}}}{{{{}}}}{{{{}}}}{{{{~"
   end
 
   it 'should parse following table' do
