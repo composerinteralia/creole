@@ -298,7 +298,7 @@ module Creole
 
     def parse_table_row(str)
       @out << '<tr>'
-      str.scan(/\s*\|(=)?\s*((\[\[.*?\]\]|\{\{.*?\}\}|[^|~]|~.)*)(?=\||$)/) do
+      str.scan(/\s*\|(=)?\s*((\[\[.*?\]\]|\{\{.*?\}\}|[^|~]|~.)*)/) do
         if !$2.empty? || !$'.empty?
           @out << ($1 ? '<th>' : '<td>')
           parse_inline($2) if $2
