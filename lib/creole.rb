@@ -76,7 +76,7 @@ class Creole
   #    parser.to_html
   #       #=> "<p><strong>Hello <em>World</em></strong></p>"
   def to_html
-    @out = ''
+    @out = +''
     @p = false
     @stack = []
     parse_block(@text)
